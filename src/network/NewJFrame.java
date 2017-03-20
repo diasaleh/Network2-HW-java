@@ -147,7 +147,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             // TODO add your handling code here:
-            String url = "http://localhost/dia.php?name="+jTextField1.getText();
+            String url = "http://localhost/server/dia.php?name="+jTextField1.getText();
             System.out.println(url);
             String output = getHTML(url);
             System.out.println(output);
@@ -159,11 +159,11 @@ public class NewJFrame extends javax.swing.JFrame {
              for(int i=0;i<20;i++){
                 System.out.print(intArray[i]);
             }
-            GraphingData g = new GraphingData(intArray);
+            GraphingData1 g = new GraphingData1(intArray);
             //g.setData(intArray);
             JFrame f = new JFrame();
             f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            f.add(new GraphingData(intArray));
+            f.add(new GraphingData1(intArray));
             f.setSize(700,500);
             f.setLocation(200,200);
             f.setVisible(true);
