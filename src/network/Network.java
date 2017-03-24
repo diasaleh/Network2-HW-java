@@ -20,11 +20,10 @@ public class Network {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        NewJFrame n = new NewJFrame();
+//        // TODO code application logic here
+        Login n = new Login();
         n.show(true);
-     
-        
+       
     }
     
 }
