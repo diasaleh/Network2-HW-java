@@ -20,7 +20,7 @@ import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import org.jfree.chart.ChartPanel; 
 import org.jfree.chart.JFreeChart; 
 import org.jfree.data.xy.XYDataset; 
-import org.jfree.data.xy.XYSeries; 
+import org.jfree.data.xy.XYSeries;
 import org.jfree.ui.ApplicationFrame; 
 import org.jfree.ui.RefineryUtilities; 
 import org.jfree.chart.plot.XYPlot; 
@@ -111,16 +111,25 @@ class Draw extends Thread
             Logger.getLogger(Draw.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.out.println(output);
-        String[] strArray = output.split(",");
-        int[] intArray = new int[strArray.length];
-        for(int i = 0; i < strArray.length; i++) {
-            intArray[i] = Integer.parseInt(strArray[i]);
-            tempreture.add(i+1, intArray[i]);          
+       
+        String[] strArray = output.split("&");
+        
+        //String data[] = output.split("&");
+//      
+//         for(int i=0;i<10;i++){
+//            System.out.print(data[i]);
+//        }
+        int x,y;
+        
+        for(int i = strArray.length-10; i < strArray.length; ) {
+            x = Integer.parseInt(strArray[i]);
+            y = Integer.parseInt(strArray[i+1]);
+            System.out.print(x+":"+y+"\n");
 
+            tempreture.add(x, y);          
+            i=i+2;
         }
-        for(int i=0;i<5;i++){
-           System.out.print(intArray[i]);
-        }
+//       
         final XYSeriesCollection dataset = new XYSeriesCollection( );          
         dataset.addSeries( tempreture );      
      
